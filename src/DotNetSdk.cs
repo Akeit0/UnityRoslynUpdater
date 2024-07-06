@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using NuGet.Versioning;
 
 namespace UnityRoslynUpdater;
@@ -18,7 +18,7 @@ public sealed class DotNetSdk
         Version = version;
     }
 
-    public string ComputeLatestCSharpLangVersion()
+    public string ComputeCSharpLangVersion(string? versionName)
     {
         // Load the bundled Roslyn installation.
         var assembly = Assembly.LoadFrom(Path.Combine(RoslynLocation, "Microsoft.CodeAnalysis.CSharp.dll"));
@@ -28,7 +28,7 @@ public sealed class DotNetSdk
         var facts = assembly.GetType("Microsoft.CodeAnalysis.CSharp.LanguageVersionFacts")!;
 
         // Retrieve the value of LanguageVersion.Latest, which we will resolve to a LangVersion string.
-        var version = Enum.Parse(versions, "Latest");
+        var version = Enum.Parse(versions, versionName??"Latest");
 
         // Convert from "Latest" to a specific version.
         version = facts.GetMethod("MapSpecifiedToEffectiveVersion")!.Invoke(null, new[] { version });
