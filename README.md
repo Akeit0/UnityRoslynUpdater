@@ -8,7 +8,7 @@ A tool to update the Roslyn compiler and C# language versions for a Unity instal
 
 For example: `UnityRoslynUpdater.exe "C:\Program Files\Unity\Hub\Editor\2022.3.8f1\Editor"`
 
-In this fork, you can specify version. e.g. `UnityRoslynUpdater.exe "C:\Program Files\Unity\Hub\Editor\2022.3.8f1\Editor" "Preview"`
+In this fork, you can specify the version. e.g. `UnityRoslynUpdater.exe "C:\Program Files\Unity\Hub\Editor\2022.3.8f1\Editor" "Preview"`
 
 # Language Support
 * Working
